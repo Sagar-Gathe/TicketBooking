@@ -2,17 +2,17 @@ package p1;
 import java.util.Scanner;
 class Booking{
 
-	private int bookingId=1234;
+	private int bookingId;
 	private int departureDate;
 	private int noOfTicket;
 	private double price;
 	private String cabinType;
 	private double totalPrice;
 	private String destination;
+	private static int bookId=12146;
 
 	Booking(){
-     // object creation;
-		price=100;
+     
 	}
 	Booking(int bookingId,int departureDate,int noOfTicket,float price,String cabinType,String destination){
 		this.bookingId=bookingId;
@@ -23,8 +23,9 @@ class Booking{
 		this.destination=destination;
 	}
 
-  void setBookingId(int bookingId){
-  	this.bookingId=bookingId+1;
+  void setBookingId(){
+  	this.bookingId=bookId;
+  	bookId++;
   }
   void setDepartureDate(int departureDate){
   	this.departureDate=departureDate;
@@ -85,7 +86,7 @@ class Test{
 
  public static void main(String[] args) {
 
- 	int n;
+ 	int n,num,num1;
  	Scanner sc=new Scanner(System.in);
  	System.out.println("Enter the number of Person Booking Ticket : ");
  	n=sc.nextInt();
@@ -96,17 +97,96 @@ class Test{
  		
 
  		 b1[i]=new Booking();
+ 		 b1[i].setBookingId();
  		 System.out.println("Enter Departure Date : ");
  		 b1[i].setDepartureDate(sc.nextInt());
  		 System.out.println("Enter Number Of Ticket You Want : ");
  		 b1[i].setNoOfTicket(sc.nextInt());
  		 sc.nextLine();
  		 System.out.println("Enter the Destination : ");
- 		 b1[i].setDestination(sc.nextLine());
+ 		// b1[i].setDestination(sc.nextLine());
+ 		
+ 		 System.out.println("Enter 1 for Tokyo : ");
+ 		 System.out.println("Enter 2 for Singapour :");
+ 		 System.out.println("Enter 3 for London : ");
+ 		 num=sc.nextInt();
+ 		 switch(num){
+
+ 		    case 1: b1[i].setDestination("Tokyo");
+ 		    	System.out.println("Enter Cabin Type :");
+ 		    	System.out.println("Press 1 for Bussiness class ");
+ 		    	System.out.println("Press 2 for First Class ");
+ 		    	System.out.println("Press 3 for economy class ");
+ 		    	num1=sc.nextInt();
+
+ 		    	  switch(num1){
+                      case 1 : b1[i].setCabinType("Bussiness");
+                      	b1[i].setPrice(500);
+                        break;                    
+                         case 2 : b1[i].setCabinType("Frist Class");
+                      	b1[i].setPrice(300);
+                      	break;
+                      case 3 : b1[i].setCabinType ("Economy Class");
+                      	b1[i].setPrice(300);
+                      	break;
+
+                      }
+
+                      break;
+
+               case 2: b1[i].setDestination("Singapour");
+ 		    	System.out.println("Enter Cabin Type :");
+ 		    	System.out.println("Press 1 for Bussiness class ");
+ 		    	System.out.println("Press 2 for First Class ");
+ 		    	System.out.println("Press 3 for economy class ");
+ 		    	num1=sc.nextInt();
+
+ 		    	  switch(num1){
+                      case 1 : b1[i].setCabinType("Bussiness");
+                      	b1[i].setPrice(500);
+                      	break;
+                      case 2 : b1[i].setCabinType("Frist Class");
+                      	b1[i].setPrice(300);
+                      	break;
+                      case 3 : b1[i].setCabinType("Economy Class");
+                      	b1[i].setPrice(300);
+                      	break;
+
+                      }
+
+                      break;
+
+
+               case 3: b1[i].setDestination("London");
+ 		    	System.out.println("Enter Cabin Type :");
+ 		    	System.out.println("Press 1 for Bussiness class ");
+ 		    	System.out.println("Press 2 for First Class ");
+ 		    	System.out.println("Press 3 for economy class ");
+ 		    	num1=sc.nextInt();
+
+ 		    	  switch(num1){
+                      case 1 : b1[i].setCabinType("Bussiness");
+                      	b1[i].setPrice(500);
+                      case 2 : b1[i].setCabinType("Frist Class");
+                      	b1[i].setPrice(300);
+                      case 3 : b1[i].setCabinType("Economy Class");
+                      	b1[i].setPrice(300);
+
+                      }
+
+                      
+
+ 		 }
+
+            
+
+
+ 	
+
 
  		
- 		 System.out.println("Enter the Cabin Type : ");
- 		 b1[i].setCabinType(sc.nextLine());
+ 		 
+ 		
 
 
 
